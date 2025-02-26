@@ -1,23 +1,21 @@
-# import urllib.request
-
-# # Pages not working. Need to find a new page to test this code.
-# page = urllib.request.urlopen("http://www.beans-r-us.biz/prices.html")
-# # http://beans-r-us.appspot.com/
-# # http://beans.itcarlow.ie/
-# text = page.read().decode("utf8")
-# print(text)
-
-# Loyalty customers prices not working either: "http://www.beans-r-us.biz/prices-loyalty.html"
-
-# New version using a text file
 from io import open
-with open("beansrus.html", "r") as page:
-    text = page.read()
-    print(text)
+import time
+from random import randrange
 
-# Encontrar el inicio del precio en el string
-print(text.find(">$"))  # 247
-print(text[247:251])
+
+# print(text[247:251])
+start_of_price = 247
+end_of_price = 251
+price = 99.99
+while price > 4.74:
+    time.sleep(1)
+    with open("beansrus.html", "r") as page:
+        text = page.read()
+    price = float(text[start_of_price:end_of_price])
+    price += randrange(-15, 15)/10
+    print(f'{"."*5} {price}')
+print(f"Buy at {price}")
+
 
 """ Other built-in string methods
 text.endswith(".jpg") # Returns True if the string ends with ".jpg"
