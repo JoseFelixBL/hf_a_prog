@@ -12,3 +12,7 @@ from io import open
 with open("beansrus.html", "r") as page:
     text = page.read()
     print(text)
+
+# Encontrar el inicio del precio en el string
+print(text.find(">$"))  # 247
+print(text[247:251])
