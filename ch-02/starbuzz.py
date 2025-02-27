@@ -3,6 +3,11 @@ import time
 from random import randrange
 
 
+def send_to_twitter(msg="Buy now!"):
+    """This is not working"""
+    pass
+
+
 def get_price():
 
     # start_of_price = 247
