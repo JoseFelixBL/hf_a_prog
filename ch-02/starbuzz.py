@@ -4,8 +4,8 @@ from random import randrange
 
 
 def send_to_twitter(msg="Buy now!"):
-    """This is not working"""
-    pass
+    """This is just a mock-up function of a twitter send"""
+    print(f"Sending this message to twitter: {msg}")
 
 
 def get_price():
@@ -27,9 +27,11 @@ buy_now = input("Do you want to buy now? (y/n) ")
 if buy_now == 'y':
     price = get_price()
     print(f"Buy NOW at {price}")
+    send_to_twitter(f"Urgent buy at {price}")
 else:
     price = 99.99
     while price > 4.74:
         time.sleep(1)
         price = get_price()
     print(f"Buy at {price}")
+    send_to_twitter(f"Buy at good price of: {price}")
