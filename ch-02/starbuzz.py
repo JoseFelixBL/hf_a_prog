@@ -18,8 +18,13 @@ def get_price():
     return price
 
 
-price = 99.99
-while price > 4.74:
-    time.sleep(1)
+buy_now = input("Do you want to buy now? (y/n) ")
+if buy_now == 'y':
     price = get_price()
-print(f"Buy at {price}")
+    print(f"Buy NOW at {price}")
+else:
+    price = 99.99
+    while price > 4.74:
+        time.sleep(1)
+        price = get_price()
+    print(f"Buy at {price}")
