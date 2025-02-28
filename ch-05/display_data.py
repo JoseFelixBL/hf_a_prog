@@ -1,5 +1,12 @@
+from pathlib import Path
+
+
 def find_details(id):
-    with open('rsa_data.csv') as file:
+    file = Path('rsa_data.csv')
+    dir = Path('ch-05')
+    file_path = dir / file
+
+    with open(file_path) as file:
         s = {}
         s['id'] = None
         for line in file:
@@ -9,7 +16,7 @@ def find_details(id):
     return s
 
 
-def print_details(s):
+def print_details(s, id):
     if s['id'] is None:
         print(f'Surfer {id} not found')
     else:
@@ -17,7 +24,11 @@ def print_details(s):
               s['average'], s['board'], s['age'])
 
 
-for id in range(101, 109):
-    data = {}
-    data = find_details(id)
-    print_details(data)
+def testing_find_details():
+    for id in range(101, 109):
+        data = {}
+        data = find_details(id)
+        print_details(data, id)
+
+
+testing_find_details()
