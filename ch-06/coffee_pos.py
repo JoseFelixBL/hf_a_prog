@@ -1,13 +1,4 @@
-from pathlib import Path
-
-
-def save_transaction(price, credit_card, description):
-    output_file = Path("transactions.txt")
-    output_dir = Path('ch-06')
-    output_final = output_dir / output_file
-    with open(output_final, "a") as file:
-        file.write(f"{credit_card:16}{int(price*100):07}{description:16}\n")
-
+from transactions import *
 
 items = ["DONUT", "LATTE", "FILTER", "MUFFIN"]
 prices = [1.50, 2.20, 1.80, 1.20]
