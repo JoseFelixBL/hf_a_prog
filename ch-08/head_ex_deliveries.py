@@ -1,4 +1,5 @@
 from tkinter import *
+import tkinter.messagebox
 from pathlib import Path
 
 
@@ -16,7 +17,8 @@ def save_data():
             description.delete(0, END)
             address.delete('1.0', END)
     except Exception as ex:
-        print(f"An error occurred: {ex}")
+        # print(f"An error occurred: {ex}")
+        tkinter.messagebox.showerror("Error!", f"An error occurred: {ex}")
 
 
 def read_depots(file):
