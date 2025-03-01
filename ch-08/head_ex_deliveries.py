@@ -7,7 +7,8 @@ app.title("Head-Ex Deliveries")
 Label(app, text="Depot:").pack()
 depot = StringVar()
 depot.set(None)
-OptionMenu(app, depot, "Cambridge, MA", "Cambridge, UK", "Seattle, WA").pack()
+depots = ["Cambridge, MA", "Cambridge, UK", "Seattle, WA"]
+OptionMenu(app, depot, *depots).pack()
 
 Label(app, text="Description:").pack()
 
