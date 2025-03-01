@@ -7,12 +7,7 @@ app.title("Head-Ex Deliveries")
 Label(app, text="Depot:").pack()
 depot = StringVar()
 depot.set(None)
-Radiobutton(app, text="Cambridge, MA",
-            value="Cambridge, MA", variable=depot).pack()
-Radiobutton(app, text="Cambridge, UK",
-            value="Cambridge, UK", variable=depot).pack()
-Radiobutton(app, text="Seattle, WA",
-            value="Seattle, WA", variable=depot).pack()
+OptionMenu(app, depot, "Cambridge, MA", "Cambridge, UK", "Seattle, WA").pack()
 
 Label(app, text="Description:").pack()
 
