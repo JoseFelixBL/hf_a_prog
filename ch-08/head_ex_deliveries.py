@@ -5,10 +5,14 @@ app = Tk()
 app.title("Head-Ex Deliveries")
 
 Label(app, text="Depot:").pack()
-
-Radiobutton(app, text="Cambridge, MA").pack()
-Radiobutton(app, text="Cambridge, UK").pack()
-Radiobutton(app, text="Seattle, WA").pack()
+depot = StringVar()
+depot.set(None)
+Radiobutton(app, text="Cambridge, MA",
+            value="Cambridge, MA", variable=depot).pack()
+Radiobutton(app, text="Cambridge, UK",
+            value="Cambridge, UK", variable=depot).pack()
+Radiobutton(app, text="Seattle, WA",
+            value="Seattle, WA", variable=depot).pack()
 
 Label(app, text="Description:").pack()
 
@@ -30,7 +34,7 @@ def save_data():
         file.write(f"{description.get()}\n")
         file.write("Address:\n")
         file.write(f"{address.get('1.0', END)}\n")
-        depot.delete(0, END)
+        depot.set(None)
         description.delete(0, END)
         address.delete('1.0', END)
 
