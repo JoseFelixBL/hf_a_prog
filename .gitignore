@@ -7,3 +7,6 @@ ch-06/transactions.txt
 ch-07/*.wav
 ch-08/deliveries.txt
 ch-08/depots.txt
+Pipfile
+Pipfile.lock
+*/*.wav
