@@ -29,14 +29,24 @@ def track_toggle():
         track.stop()
 
 
+def change_volume(v):
+    track.set_volume(volume.get())
+
+
 sound_file = "50459_M_RED_Nephlimizer.wav"
 track = mixer.Sound(sound_file)
 
 track_playing = IntVar()
+volume = DoubleVar()
+volume.set(track.get_volume())
+volume_scale = Scale(variable=volume, from_=0.0, to=1.0,
+                     resolution=0.1, command=change_volume, label="Volume", orient=HORIZONTAL)
+volume_scale.pack(side=RIGHT)
 
 track_button = Checkbutton(app, variable=track_playing,
                            command=track_toggle, text=sound_file)
 track_button.pack(side=LEFT)
+
 
 app.protocol("WM_DELETE_WINDOW", shutdown)
 app.mainloop()
