@@ -1,6 +1,7 @@
 from tkinter import *
 import pygame.mixer
 from sound_panel import *
+import os
 
 app = Tk()
 app.title("Head First Mix")
@@ -14,10 +15,11 @@ def shutdown():
     app.destroy()
 
 
-panel = SoundPanel(app, mixer, "50459_M_RED_Nephlimizer.wav")
-panel.pack()
-panel = SoundPanel(app, mixer, "49119_M_RED_HardBouncer.wav")
-panel.pack()
+dirList = os.listdir(".")
+for fname in dirList:
+    if fname.endswith(".wav"):
+        panel = SoundPanel(app, mixer, fname)
+        panel.pack()
 
 app.protocol("WM_DELETE_WINDOW", shutdown)
 app.mainloop()
