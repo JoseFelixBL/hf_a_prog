@@ -8,9 +8,6 @@ app.geometry('250x100+200+100')
 mixer = pygame.mixer
 mixer.init()
 
-sound_file = "50459_M_RED_Nephlimizer.wav"
-track = mixer.Sound(sound_file)
-
 
 def track_start():
     track.play(loops=-1)
@@ -25,11 +22,21 @@ def shutdown():
     app.destroy()
 
 
-start_button = Button(app, command=track_start, text="Start")
-start_button.pack(side=LEFT)
+def track_toggle():
+    if track_playing.get() == 1:
+        track.play(loops=-1)
+    else:
+        track.stop()
 
-stop_button = Button(app, command=track_stop, text="Stop")
-stop_button.pack(side=RIGHT)
+
+sound_file = "50459_M_RED_Nephlimizer.wav"
+track = mixer.Sound(sound_file)
+
+track_playing = IntVar()
+
+track_button = Checkbutton(app, variable=track_playing,
+                           command=track_toggle, text=sound_file)
+track_button.pack(side=LEFT)
 
 app.protocol("WM_DELETE_WINDOW", shutdown)
 app.mainloop()
