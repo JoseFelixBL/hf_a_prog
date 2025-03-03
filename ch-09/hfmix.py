@@ -3,7 +3,6 @@ import pygame.mixer
 
 app = Tk()
 app.title("Head First Mix")
-app.geometry('250x100+200+100')
 
 mixer = pygame.mixer
 mixer.init()
