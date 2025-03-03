@@ -10,3 +10,4 @@ ch-08/depots.txt
 Pipfile
 Pipfile.lock
 */*.wav
+ch-09/*.txt
