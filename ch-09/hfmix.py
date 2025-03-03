@@ -14,8 +14,10 @@ def shutdown():
     app.destroy()
 
 
-create_gui(app, mixer, "50459_M_RED_Nephlimizer.wav")
-create_gui(app, mixer, "49119_M_RED_HardBouncer.wav")
+panel = SoundPanel(app, mixer, "50459_M_RED_Nephlimizer.wav")
+panel.pack()
+panel = SoundPanel(app, mixer, "49119_M_RED_HardBouncer.wav")
+panel.pack()
 
 app.protocol("WM_DELETE_WINDOW", shutdown)
 app.mainloop()
